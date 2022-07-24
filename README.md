@@ -40,3 +40,15 @@ More information may be available on the original [Redash documentation page](ht
    ```sh
    ./manage.py database create_tables
    ```
+7. Add remote redash repository.
+   ```sh
+   git remote add redash git@github.com:getredash/redash.git
+   ```
+
+### Aligning with Redash
+Origami tracks Redash `master` branch in the origami `redash` branch. To get the lastest, you can checkout the branch
+and then pull from remote `master` into `redash`. From there you can merge changes as appropriate.
+```sh
+git checkout redash
+git pull redash master:redash
+```
