@@ -20,10 +20,12 @@ export default function ApplicationArea() {
       setUnhandledError(event.error);
     }
 
+    // eslint-disable-next-line compat/compat
     document.body.addEventListener("click", handleNavigationIntent, false);
     window.addEventListener("error", globalErrorHandler, false);
 
     return () => {
+        // eslint-disable-next-line compat/compat
       document.body.removeEventListener("click", handleNavigationIntent, false);
       window.removeEventListener("error", globalErrorHandler, false);
     };

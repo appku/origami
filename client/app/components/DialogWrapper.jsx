@@ -129,6 +129,7 @@ function openDialog(DialogComponent, props) {
   };
 
   const container = document.createElement("div");
+  // eslint-disable-next-line compat/compat
   document.body.appendChild(container);
 
   function render() {
@@ -139,6 +140,7 @@ function openDialog(DialogComponent, props) {
     // Allow calling chain to roll up, and then destroy component
     setTimeout(() => {
       ReactDOM.unmountComponentAtNode(container);
+      // eslint-disable-next-line compat/compat
       document.body.removeChild(container);
     }, 10);
   }

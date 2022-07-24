@@ -1,113 +1,42 @@
-<p align="center">
-  <img title="Redash" src='https://redash.io/assets/images/logo.png' width="200px"/>
-</p>
+# AppKu/Origami
+AppKu/Origami is a fork of the popular open-sourced, BSD-2 licenses version of [Redash](https://github.com/getredash/redash)
+specifically crafted to fit within the suite of tools within the AppKu system and to implement standardization,
+enhancements, and fixes.
 
-[![Documentation](https://img.shields.io/badge/docs-redash.io/help-brightgreen.svg)](https://redash.io/help/)
-[![Datree](https://s3.amazonaws.com/catalog.static.datree.io/datree-badge-20px.svg)](https://datree.io/?src=badge)
-[![Build Status](https://circleci.com/gh/getredash/redash.png?style=shield&circle-token=8a695aa5ec2cbfa89b48c275aea298318016f040)](https://circleci.com/gh/getredash/redash/tree/master)
+## Differences
+AppKu/Origami is specifically tailored to fit within the AppKu ecosystem, and may contain specific enhancements and 
+changes not found in Redash. Notably, areas such as visualizations, authentication, look & feel, and technical
+implementation may vary slightly (or extremely). If you are seeking a stand-alone visualization system, we recommend
+you stick with [Redash](https://github.com/getredash/redash).
 
-Redash is designed to enable anyone, regardless of the level of technical sophistication, to harness the power of data big and small. SQL users leverage Redash to explore, query, visualize, and share data from any data sources. Their work in turn enables anybody in their organization to use the data. Every day, millions of users at thousands of organizations around the world use Redash to develop insights and make data-driven decisions.
+- AppKu/Origami utilizes `npm` instead of `yarn`.
 
-Redash features:
+### FOSS Commitment
+AppKu/Origami will continue to be free and open-source software, available under the BSD-2-clause license, and, when
+possible, will contribute back to the [Redash](https://github.com/getredash/redash) project while it remains available.
 
-1. **Browser-based**: Everything in your browser, with a shareable URL.
-2. **Ease-of-use**: Become immediately productive with data without the need to master complex software.
-3. **Query editor**: Quickly compose SQL and NoSQL queries with a schema browser and auto-complete.
-4. **Visualization and dashboards**: Create [beautiful visualizations](https://redash.io/help/user-guide/visualizations/visualization-types) with drag and drop, and combine them into a single dashboard.
-5. **Sharing**: Collaborate easily by sharing visualizations and their associated queries, enabling peer review of reports and queries.
-6. **Schedule refreshes**: Automatically update your charts and dashboards at regular intervals you define.
-7. **Alerts**: Define conditions and be alerted instantly when your data changes.
-8. **REST API**: Everything that can be done in the UI is also available through REST API.
-9. **Broad support for data sources**: Extensible data source API with native support for a long list of common databases and platforms.
+## Constributor Setup
+The following instructions are used for setting up Origami on Rocky Linux 8 (RHEL/CentOS) for development purposes. 
+More information may be available on the original [Redash documentation page](https://redash.io/help/open-source/dev-guide/setup).
 
-<img src="https://raw.githubusercontent.com/getredash/website/8e820cd02c73a8ddf4f946a9d293c54fd3fb08b9/website/_assets/images/redash-anim.gif" width="80%"/>
-
-## Getting Started
-
-* [Setting up Redash instance](https://redash.io/help/open-source/setup) (includes links to ready-made AWS/GCE images).
-* [Documentation](https://redash.io/help/).
-
-## Supported Data Sources
-
-Redash supports more than 35 SQL and NoSQL [data sources](https://redash.io/help/data-sources/supported-data-sources). It can also be extended to support more. Below is a list of built-in sources:
-
-- Amazon Athena
-- Amazon CloudWatch / Insights
-- Amazon DynamoDB
-- Amazon Redshift
-- ArangoDB
-- Axibase Time Series Database
-- Apache Cassandra
-- ClickHouse
-- CockroachDB
-- Couchbase
-- CSV
-- Databricks
-- DB2 by IBM
-- Dgraph
-- Apache Drill
-- Apache Druid
-- Eccenca Corporate Memory
-- Elasticsearch
-- Exasol
-- Microsoft Excel
-- Firebolt
-- Google Analytics
-- Google BigQuery
-- Google Spreadsheets
-- Graphite
-- Greenplum
-- Apache Hive
-- Apache Impala
-- InfluxDB
-- IBM Netezza Performance Server
-- JIRA (JQL)
-- JSON
-- Apache Kylin
-- OmniSciDB (Formerly MapD)
-- MemSQL
-- Microsoft Azure Data Warehouse / Synapse
-- Microsoft Azure SQL Database
-- Microsoft Azure Data Explorer / Kusto
-- Microsoft SQL Server
-- MongoDB
-- MySQL
-- Oracle
-- Apache Phoenix
-- PostgreSQL
-- Presto
-- Prometheus
-- Python
-- Qubole
-- Rockset
-- Salesforce
-- ScyllaDB
-- Shell Scripts
-- Snowflake
-- SPARQL
-- SQLite
-- TiDB
-- TreasureData
-- Trino
-- Uptycs
-- Vertica
-- Yandex AppMetrrica
-- Yandex Metrica
-
-## Getting Help
-
-* Issues: https://github.com/getredash/redash/issues
-* Discussion Forum: https://discuss.redash.io/
-
-## Reporting Bugs and Contributing Code
-
-* Want to report a bug or request a feature? Please open [an issue](https://github.com/getredash/redash/issues/new).
-* Want to help us build **_Redash_**? Fork the project, edit in a [dev environment](https://redash.io/help-onpremise/dev/guide.html) and make a pull request. We need all the help we can get!
-
-## Security
-
-Please email security@redash.io to report any security vulnerabilities. We will acknowledge receipt of your vulnerability and strive to send you regular updates about our progress. If you're curious about the status of your disclosure please feel free to email us again. If you want to encrypt your disclosure email, you can use [this PGP key](https://keybase.io/arikfr/key.asc).
-
-## License
-
-BSD-2-Clause.
+1. Make sure dependencies are installed and ensure you are running at least `node.js` LTS.
+    ```sh
+    sudo dnf install python3 python3-devel python3-pip postgresql python3-psycopg2 libffi-devel
+    ```
+2. Ensure `pip` is aliased to `pip3`.
+    ```sh
+    alias pip=pip3 >> ~/.bash_aliases
+    ```
+3. Install python packages.
+    ```sh
+    pip install -r requirements.txt -r requirements_dev.txt
+    ```
+4. Install `node` packages and build viz-lib.
+   ```sh
+   npm i
+   ```
+5. Create your default configuration.
+6. Setup the database.
+   ```sh
+   ./manage.py database create_tables
+   ```

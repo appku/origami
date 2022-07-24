@@ -5,6 +5,7 @@ import location from "@/services/location";
 export default function useFullscreenHandler() {
   const [fullscreen, setFullscreen] = useState(has(location.search, "fullscreen"));
   useEffect(() => {
+    // eslint-disable-next-line compat/compat
     document.body.classList.toggle("headless", fullscreen);
     location.setSearch({ fullscreen: fullscreen ? true : null }, true);
   }, [fullscreen]);

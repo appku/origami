@@ -146,6 +146,7 @@ class DashboardGrid extends React.Component {
   }
 
   componentDidMount() {
+    // eslint-disable-next-line compat/compat
     this.onBreakpointChange(document.body.offsetWidth <= cfg.mobileBreakPoint ? SINGLE : MULTI);
     // Work-around to disable initial animation on widgets; `measureBeforeMount` doesn't work properly:
     // it disables animation, but it cannot detect scrollbars.
@@ -173,6 +174,7 @@ class DashboardGrid extends React.Component {
 
     // workaround for https://github.com/STRML/react-grid-layout/issues/889
     // remove next line when fix lands
+    // eslint-disable-next-line compat/compat
     this.mode = document.body.offsetWidth <= cfg.mobileBreakPoint ? SINGLE : MULTI;
     // end workaround
 

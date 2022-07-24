@@ -108,10 +108,11 @@ export function getDefaultVisualization() {
 }
 
 export function newVisualization(type = null, options = {}) {
-  // @ts-expect-error ts-migrate(2538) FIXME: Type 'null' cannot be used as an index type.
   const visualization = type ? registeredVisualizations[type] : getDefaultVisualization();
   return {
+    // @ts-expect-error ts-migrate(2339)
     type: visualization.type,
+    // @ts-expect-error ts-migrate(2339)
     name: visualization.name,
     description: "",
     options,

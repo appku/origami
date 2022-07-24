@@ -3,6 +3,7 @@ import { pick, extend } from "lodash";
 const link = document.createElement("a"); // the only way to get an instance of Location class
 // add to document to apply <base> href
 link.style.display = "none";
+// eslint-disable-next-line compat/compat
 document.body.appendChild(link);
 
 const fragmentProps = ["origin", "protocol", "host", "hostname", "port", "pathname", "search", "hash", "href"];

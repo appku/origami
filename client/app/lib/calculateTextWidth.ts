@@ -1,7 +1,9 @@
 const canvas = document.createElement("canvas");
 canvas.style.display = "none";
+// eslint-disable-next-line compat/compat
 document.body.appendChild(canvas);
 
+// eslint-disable-next-line compat/compat
 export function calculateTextWidth(text: string, container = document.body) {
   const ctx = canvas.getContext("2d");
   if (ctx) {

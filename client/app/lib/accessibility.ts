@@ -7,6 +7,7 @@ interface SrNotifyProps {
   politeness: HTMLAttributes<HTMLDivElement>["aria-live"];
 }
 
+// eslint-disable-next-line compat/compat
 export function srNotify({ text, expiry = 1000, container = document.body, politeness = "polite" }: SrNotifyProps) {
   const element = document.createElement("div");
   const id = `speak-${Date.now()}`;
