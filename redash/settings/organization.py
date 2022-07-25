@@ -23,8 +23,8 @@ SAML_X509_CERT = os.environ.get("REDASH_SAML_X509_CERT", "")
 SAML_SP_SETTINGS = os.environ.get("REDASH_SAML_SP_SETTINGS", "")
 SAML_LOGIN_ENABLED = SAML_SSO_URL != "" and SAML_METADATA_URL != ""
 
-DATE_FORMAT = os.environ.get("REDASH_DATE_FORMAT", "DD/MM/YY")
-TIME_FORMAT = os.environ.get("REDASH_TIME_FORMAT", "HH:mm")
+DATE_FORMAT = os.environ.get("REDASH_DATE_FORMAT", "M/D/YYYY")
+TIME_FORMAT = os.environ.get("REDASH_TIME_FORMAT", "h:mm a")
 INTEGER_FORMAT = os.environ.get("REDASH_INTEGER_FORMAT", "0,0")
 FLOAT_FORMAT = os.environ.get("REDASH_FLOAT_FORMAT", "0,0.00")
 MULTI_BYTE_SEARCH_ENABLED = parse_boolean(

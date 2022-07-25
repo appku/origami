@@ -476,7 +476,7 @@ PAGE_SIZE_OPTIONS = list(
 TABLE_CELL_MAX_JSON_SIZE = int(os.environ.get("REDASH_TABLE_CELL_MAX_JSON_SIZE", 50000))
 
 # Features:
-VERSION_CHECK = parse_boolean(os.environ.get("REDASH_VERSION_CHECK", "true"))
+VERSION_CHECK = parse_boolean(os.environ.get("REDASH_VERSION_CHECK", "false"))
 FEATURE_DISABLE_REFRESH_QUERIES = parse_boolean(
     os.environ.get("REDASH_FEATURE_DISABLE_REFRESH_QUERIES", "false")
 )
